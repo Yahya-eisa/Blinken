@@ -73,7 +73,7 @@ def classify_city(city):
     return "Other City"
 
 # ---------- PDF table builder ----------
-def df_to_pdf_table(df, title="FLASH"):
+def df_to_pdf_table(df, title="Blinken"):
     if "اجمالي عدد القطع في الطلب" in df.columns:
         df = df.rename(columns={"اجمالي عدد القطع في الطلب": "عدد القطع"})
 
@@ -120,7 +120,7 @@ def df_to_pdf_table(df, title="FLASH"):
 
     tz = pytz.timezone('Africa/Cairo')
     today = datetime.datetime.now(tz).strftime("%Y-%m-%d")
-    title_text = f"{title} | FLASH | {today}"
+    title_text = f"{title} |Blinken Blinken  | {today}"
 
     elements = [
         Paragraph(fix_arabic(title_text), styleTitle),
@@ -141,8 +141,8 @@ def df_to_pdf_table(df, title="FLASH"):
     return elements
 
 # ---------- Streamlit App ----------
-st.set_page_config(page_title="🔥 Flash Orders Processor", layout="wide")
-st.title("🔥 Flash Orders Processor")
+st.set_page_config(page_title="🔥 Blinken Orders Processor", layout="wide")
+st.title("🔥Blinken  Orders Processor")
 st.markdown("....ارفع الملفات يا رايق علشان تستلم الشيت")
 
 uploaded_files = st.file_uploader(
@@ -204,7 +204,7 @@ if uploaded_files:
 
         tz = pytz.timezone('Africa/Cairo')
         today = datetime.datetime.now(tz).strftime("%Y-%m-%d")
-        file_name = f"سواقين فلاش - {today}.pdf"
+        file_name = f"Blinken drivers - {today}.pdf"
 
         st.success("✅تم تجهيز ملف PDF ✅")
         st.download_button(
@@ -213,7 +213,6 @@ if uploaded_files:
             file_name=file_name,
             mime="application/pdf"
         )
-
 
 
 
